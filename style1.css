@@ -1,0 +1,1433 @@
+/* =========================================================
+   PIN LOGIN — ROMANTIC PINK AESTHETIC
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(255, 255, 255, 0.18),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #b05a7e,
+            #d889a5,
+            #e7a9bd
+        );
+
+    font-family: "Poppins", sans-serif;
+
+    color: #ffffff;
+
+    overflow-x: hidden;
+
+    cursor: none;
+}
+
+
+/* =========================================================
+   HIDE NORMAL CURSOR
+========================================================= */
+
+body *,
+button,
+a,
+input,
+textarea,
+select {
+    cursor: none !important;
+}
+
+
+/* =========================================================
+   PORORO CUSTOM MOUSE CURSOR
+========================================================= */
+
+.pororo-cursor {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 52px;
+    height: 52px;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+
+    z-index: 999999;
+
+    transform:
+        translate(-50%, -50%);
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(80, 20, 40, 0.25)
+        );
+
+    transition:
+        width 0.1s ease,
+        height 0.1s ease;
+}
+
+
+body.cursor-hover .pororo-cursor {
+    width: 58px;
+    height: 58px;
+}
+
+
+/* =========================================================
+   GREETING
+========================================================= */
+
+.greeting {
+    width: 100%;
+    max-width: 500px;
+
+    margin-bottom: 18px;
+
+    text-align: center;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-size:
+        clamp(22px, 4vw, 32px);
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    color: #fffafa;
+
+    text-shadow:
+        0 2px 8px
+        rgba(82, 25, 48, 0.25);
+
+    animation:
+        fadeDown
+        0.8s
+        ease;
+}
+
+
+/* =========================================================
+   PORORO CONTAINER
+========================================================= */
+
+.pororo-container {
+    position: relative;
+
+    display: inline-flex;
+
+    width: 52px;
+    height: 52px;
+
+    margin-left: 8px;
+
+    vertical-align: middle;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   PORORO ICON
+========================================================= */
+
+.pororo-icon {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 25;
+
+    margin-left: 0;
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(80, 20, 40, 0.18)
+        );
+
+    animation:
+        pororoBounce
+        2s
+        ease-in-out
+        infinite;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.pororo-icon:hover {
+
+    transform:
+        scale(1.12)
+        rotate(-4deg);
+
+    filter:
+        drop-shadow(
+            0 5px 9px
+            rgba(80, 20, 40, 0.25)
+        );
+
+    animation: none;
+}
+
+
+.pororo-icon:active {
+
+    transform:
+        scale(0.9);
+}
+
+
+/* =========================================================
+   CUTE CLICK ME HINT
+   RIGHT-MIDDLE OF PORORO
+   NOT CLICKABLE
+========================================================= */
+
+.pororo-hint {
+
+    position: absolute;
+
+    top: 50%;
+    left: calc(100% + 12px);
+
+    transform:
+        translateY(-50%);
+
+    z-index: 22;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    min-width: 92px;
+
+    padding:
+        7px
+        11px
+        7px
+        12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.97),
+            rgba(255, 239, 247, 0.94)
+        );
+
+    color: #a64f73;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.2px;
+
+    white-space: nowrap;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 5px 15px
+        rgba(86, 28, 52, 0.16),
+
+        0 0 12px
+        rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    pointer-events: none;
+
+    animation:
+        hintCuteFloat
+        2.2s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   LITTLE TRIANGLE CONNECTING TO PORORO
+========================================================= */
+
+.pororo-hint::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -5px;
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    background:
+        rgba(255, 250, 253, 0.96);
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+
+    border-radius: 2px;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+.hint-sparkle {
+
+    display: inline-block;
+
+    color: #ff82b5;
+
+    font-size: 9px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 5px
+        rgba(255, 130, 181, 0.45);
+
+    animation:
+        sparklePulse
+        1.4s
+        ease-in-out
+        infinite;
+}
+
+
+.sparkle-one {
+
+    transform:
+        translateY(-1px);
+
+    animation-delay:
+        0s;
+}
+
+
+.sparkle-two {
+
+    font-size: 11px;
+
+    transform:
+        translateY(1px);
+
+    animation-delay:
+        0.4s;
+}
+
+
+/* =========================================================
+   CLICK ME TEXT
+========================================================= */
+
+.hint-text {
+
+    position: relative;
+
+    color: #a64f73;
+}
+
+
+/* =========================================================
+   CUTE FLOAT
+========================================================= */
+
+@keyframes hintCuteFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(-50%)
+            translateX(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(
+                calc(-50% - 4px)
+            )
+            translateX(2px);
+
+    }
+
+}
+
+
+/* =========================================================
+   SPARKLE ANIMATION
+========================================================= */
+
+@keyframes sparklePulse {
+
+    0%,
+    100% {
+
+        opacity: 0.55;
+
+        transform:
+            scale(0.85)
+            rotate(0deg);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.2)
+            rotate(15deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN BOX
+========================================================= */
+
+.login-box {
+    width: min(90vw, 370px);
+
+    padding: 32px 28px 30px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.17
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.35
+        );
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(74, 20, 42, 0.25),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.3);
+
+    text-align: center;
+
+    animation:
+        fadeUp
+        0.8s
+        ease;
+}
+
+
+/* =========================================================
+   PASSCODE TEXT
+========================================================= */
+
+.passcode-text {
+
+    margin-bottom: 22px;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.4px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+}
+
+
+/* =========================================================
+   PIN DISPLAY
+========================================================= */
+
+.pin-display {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+
+.pin-display span {
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.35
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.6
+        );
+
+    box-shadow:
+        0 2px 6px
+        rgba(80, 20, 40, 0.15);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.pin-display span.filled {
+
+    background: #ffffff;
+
+    transform: scale(1.15);
+
+    box-shadow:
+        0 0 10px
+        rgba(
+            255,
+            255,
+            255,
+            0.8
+        );
+}
+
+
+/* =========================================================
+   KEYPAD
+========================================================= */
+
+.keypad {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   NUMBER BUTTONS
+========================================================= */
+
+.keypad button {
+
+    width: 100%;
+    height: 58px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+    color: #ffffff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    box-shadow:
+        0 5px 12px
+        rgba(75, 20, 42, 0.12);
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.keypad button:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.30
+        );
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 16px
+        rgba(75, 20, 42, 0.18);
+}
+
+
+.keypad button:active {
+
+    transform:
+        scale(0.93);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.38
+        );
+
+    box-shadow:
+        0 3px 8px
+        rgba(75, 20, 42, 0.12);
+}
+
+
+.keypad .clear-btn {
+
+    color: #ffe5ed;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.keypad .backspace-btn {
+
+    font-size: 21px;
+
+    color: #ffe5ed;
+}
+
+
+/* =========================================================
+   ENTER BUTTON
+========================================================= */
+
+.login-btn {
+
+    width: 100%;
+    height: 55px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    color: #a64f73;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(75, 20, 42, 0.20);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.login-btn:hover {
+
+    background: #fff5f8;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 11px 25px
+        rgba(75, 20, 42, 0.25);
+}
+
+
+.login-btn:active {
+
+    transform:
+        scale(0.97);
+
+    box-shadow:
+        0 4px 10px
+        rgba(75, 20, 42, 0.15);
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+#error {
+
+    display: none;
+
+    margin-top: 16px;
+
+    font-size: 13px;
+
+    color: #ffe2ea;
+
+    animation:
+        shake
+        0.3s
+        ease;
+}
+
+
+/* =========================================================
+   PORORO BOUNCE
+========================================================= */
+
+@keyframes pororoBounce {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+
+/* =========================================================
+   CUTE PINK HEARTS FOLLOWING CURSOR
+========================================================= */
+
+.cursor-heart {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    pointer-events: none;
+
+    z-index: 999998;
+
+    color: #ff7eb9;
+
+    font-size: 13px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 5px
+        rgba(
+            255,
+            126,
+            185,
+            0.5
+        );
+
+    animation:
+        heartFloat
+        0.9s
+        ease-out
+        forwards;
+}
+
+
+@keyframes heartFloat {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(0.7)
+            rotate(0deg);
+    }
+
+
+    50% {
+
+        opacity: 0.9;
+
+        transform:
+            translate(
+                calc(
+                    -50% +
+                    var(--move-x)
+                ),
+                calc(
+                    -50% - 10px
+                )
+            )
+            scale(1.1)
+            rotate(10deg);
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(
+                    -50% +
+                    var(--move-x)
+                ),
+                calc(
+                    -50% - 35px
+                )
+            )
+            scale(0.5)
+            rotate(-10deg);
+    }
+
+}
+
+
+/* =========================================================
+   PORORO DIALOGUE BACKGROUND
+========================================================= */
+
+.pororo-dialogue {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(
+            230,
+            125,
+            167,
+            0.027
+        );
+
+    backdrop-filter: blur(5px);
+
+    -webkit-backdrop-filter: blur(5px);
+
+    z-index: 10000;
+}
+
+
+.pororo-dialogue.show {
+
+    display: flex;
+
+    animation:
+        dialogueBackground
+        0.25s
+        ease;
+}
+
+
+/* =========================================================
+   DIALOGUE BOX
+========================================================= */
+
+.dialogue-content {
+
+    position: relative;
+
+    width: min(90vw, 350px);
+
+    padding:
+        32px
+        25px
+        27px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.97
+            ),
+            rgba(
+                255,
+                235,
+                243,
+                0.96
+            )
+        );
+
+    border:
+        2px solid
+        rgba(
+            255,
+            126,
+            185,
+            0.35
+        );
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(
+            80,
+            20,
+            45,
+            0.28
+        );
+
+    animation:
+        dialoguePop
+        0.35s
+        cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        );
+}
+
+
+.dialogue-heart {
+
+    margin-bottom: 10px;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    color: #ff75ad;
+
+    text-shadow:
+        0 3px 8px
+        rgba(
+            255,
+            117,
+            173,
+            0.3
+        );
+
+    animation:
+        heartBeat
+        1.3s
+        ease-in-out
+        infinite;
+}
+
+
+.dialogue-content p {
+
+    margin: 5px 0;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-size: 23px;
+
+    line-height: 1.35;
+
+    color: #a64f73;
+}
+
+
+.dialogue-content span {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    color: #c06a8d;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-dialogue {
+
+    position: absolute;
+
+    top: 10px;
+    right: 13px;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #c06a8d;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.close-dialogue:hover {
+
+    color: #ff4f9a;
+
+    transform:
+        rotate(90deg)
+        scale(1.1);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeDown {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform:
+            translateX(0);
+    }
+
+    25% {
+        transform:
+            translateX(-6px);
+    }
+
+    50% {
+        transform:
+            translateX(6px);
+    }
+
+    75% {
+        transform:
+            translateX(-4px);
+    }
+
+}
+
+
+@keyframes dialogueBackground {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes dialoguePop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.7)
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+
+        padding:
+            25px 15px;
+
+    }
+
+
+    .greeting {
+
+        font-size: 23px;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .login-box {
+
+        width: 100%;
+
+        max-width: 350px;
+
+        padding:
+            28px 22px;
+
+    }
+
+
+    .keypad {
+
+        gap: 10px;
+
+    }
+
+
+    .keypad button {
+
+        height: 55px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .pin-display {
+
+        gap: 13px;
+
+    }
+
+
+    .pororo-cursor {
+
+        width: 44px;
+        height: 44px;
+
+    }
+
+
+    .pororo-container {
+
+        width: 46px;
+        height: 46px;
+
+        margin-left: 5px;
+
+    }
+
+
+    .pororo-icon {
+
+        width: 44px;
+        height: 44px;
+
+    }
+
+
+    /* CLICK ME — RIGHT SIDE OF PORORO */
+
+    .pororo-hint {
+
+        left: calc(100% + 8px);
+
+        top: 50%;
+
+        bottom: auto;
+
+        min-width: 78px;
+
+        padding:
+            6px
+            9px;
+
+        font-size: 8px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .pororo-hint::before {
+
+        width: 8px;
+        height: 8px;
+
+        left: -4px;
+
+    }
+
+
+    .hint-sparkle {
+
+        font-size: 8px;
+
+    }
+
+
+    .sparkle-two {
+
+        font-size: 9px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (pointer: coarse) {
+
+    body,
+    body *,
+    button,
+    a,
+    input,
+    textarea,
+    select {
+
+        cursor: auto !important;
+
+    }
+
+
+    .pororo-cursor {
+
+        display: none;
+
+    }
+
+}

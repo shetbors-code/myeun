@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Flower Bouquet</title>
+            <link
+            rel="icon"
+            type="image/png"
+            href="proro.jpg - Edited.png"
+        >
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="bouquet.css"
+    >
+
+</head>
+
+
+<body>
+
+    <audio
+    id="bouquetMusic"
+    src="Libu-Libong Buwan (Uuwian) - Kyle Raphael (Lyric Video).mp3"
+    autoplay
+    loop
+    preload="auto"
+></audio>
+
+
+    <!-- CUSTOM HEART CURSOR -->
+
+    <div id="heartCursor">
+        <span>♥</span>
+    </div>
+
+
+    <!-- BACKGROUND HEARTS -->
+
+    <div class="background-heart heart-one">
+        ♡
+    </div>
+
+    <div class="background-heart heart-two">
+        ♡
+    </div>
+
+    <div class="background-heart heart-three">
+        ♡
+    </div>
+
+    <div class="background-heart heart-four">
+        ♡
+    </div>
+
+
+    <!-- MAIN PAGE -->
+
+    <main class="page">
+
+
+        <div class="small-title">
+            A little something for you
+        </div>
+
+
+        <h1 class="main-title">
+            A Bouquet For You
+        </h1>
+
+
+        <p class="intro">
+            Every rose has a little message waiting for you.
+            Click each one and see what I want to tell you. ♡
+        </p>
+
+
+        <!-- BOUQUET -->
+
+        <div class="bouquet-card">
+
+            <div class="bouquet-image">
+
+
+                <img
+                    src="rosesbouquet.png"
+                    alt="A bouquet of colorful roses"
+                    draggable="false"
+                >
+
+
+                <!-- BLUE ROSE -->
+
+                <button
+                    class="rose-hotspot blue"
+                    type="button"
+                    aria-label="Blue rose"
+                    onclick="showMessage('blue')"
+                ></button>
+
+
+                <!-- RED ROSE -->
+
+                <button
+                    class="rose-hotspot red"
+                    type="button"
+                    aria-label="Red rose"
+                    onclick="showMessage('red')"
+                ></button>
+
+
+                <!-- WHITE ROSE -->
+
+                <button
+                    class="rose-hotspot white"
+                    type="button"
+                    aria-label="White rose"
+                    onclick="showMessage('white')"
+                ></button>
+
+
+                <!-- PINK ROSE -->
+
+                <button
+                    class="rose-hotspot pink"
+                    type="button"
+                    aria-label="Pink rose"
+                    onclick="showMessage('pink')"
+                ></button>
+
+
+                <!-- YELLOW ROSE -->
+
+                <button
+                    class="rose-hotspot yellow"
+                    type="button"
+                    aria-label="Yellow rose"
+                    onclick="showMessage('yellow')"
+                ></button>
+
+
+                <!-- PURPLE ROSE -->
+
+                <button
+                    class="rose-hotspot purple"
+                    type="button"
+                    aria-label="Purple rose"
+                    onclick="showMessage('purple')"
+                ></button>
+
+
+            </div>
+
+
+            <div class="click-hint">
+
+                <span class="click-hint-heart">
+                    ♥
+                </span>
+
+                <span>
+                    Click a rose to read its little message
+                </span>
+
+                <span class="click-hint-heart">
+                    ♥
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+
+        <a
+            href="dashboard.html"
+            class="back-button"
+        >
+
+            <span>
+                ←
+            </span>
+
+            <span>
+                Back to our little world
+            </span>
+
+        </a>
+
+
+    </main>
+
+
+    <!-- DIALOGUE -->
+
+    <div
+        class="dialogue-overlay"
+        id="dialogueOverlay"
+    >
+
+        <div class="dialogue-box">
+
+
+            <button
+                class="dialogue-close"
+                id="dialogueClose"
+                type="button"
+                aria-label="Close message"
+            >
+                ×
+            </button>
+
+
+            <div
+                class="dialogue-flower"
+                id="dialogueFlower"
+            >
+                🌹
+            </div>
+
+
+            <h2 id="dialogueTitle">
+                A little message for you
+            </h2>
+
+
+            <p id="dialogueText">
+                You are loved more than you know.
+            </p>
+
+
+            <div class="dialogue-small">
+                ♡ from me, your poging bebe.
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="bouquet.js"></script>
+
+
+</body>
+
+</html>

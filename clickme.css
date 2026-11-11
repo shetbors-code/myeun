@@ -1,0 +1,969 @@
+/* =========================================================
+   CLICKME.CSS
+   CSS ONLY FOR clickme.html
+========================================================= */
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+.pororo-cursor {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 52px;
+    height: 52px;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+
+    z-index: 2147483647;
+
+    transform: translate(-50%, -50%);
+
+    display: block;
+
+    will-change: left, top;
+
+    visibility: visible !important;
+
+    opacity: 1;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* =========================================================
+   HEART CURSOR
+========================================================= */
+
+.heart-cursor {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 42px;
+    height: 42px;
+
+    pointer-events: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    z-index: 2147483647;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    will-change: left, top, transform;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.heart-cursor span {
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    color: #ff6fa8;
+
+    text-shadow:
+        0 2px 5px rgba(255, 79, 139, 0.3);
+
+    filter:
+        drop-shadow(0 0 4px rgba(255, 116, 165, 0.35));
+
+    animation:
+        cuteHeartBeat 1.15s ease-in-out infinite;
+}
+
+@keyframes cuteHeartBeat {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(-3deg);
+    }
+
+    50% {
+        transform: scale(1.16) rotate(3deg);
+    }
+}
+
+body.cursor-heart-mode .pororo-cursor {
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.cursor-heart-mode .heart-cursor {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================================
+   CURSOR TRACKER
+========================================================= */
+
+.cursor-tracker {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+
+    z-index: 2147483646;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   SCENES
+========================================================= */
+
+.scene {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SCENE ONE — CLICK ME
+========================================================= */
+
+.scene-one {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #e0b3c7 0%,
+            #e998b6 55%,
+            #e7bdcd 100%
+        );
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.scene-one.hide-scene {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BIG HEART
+========================================================= */
+
+.heart-container {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 280px;
+    height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+        left 0.65s cubic-bezier(.22, .8, .25, 1),
+        top 0.65s cubic-bezier(.22, .8, .25, 1),
+        transform 0.65s cubic-bezier(.22, .8, .25, 1);
+}
+
+.big-heart {
+    border: none;
+
+    background: transparent;
+
+    font-size: clamp(100px, 18vw, 180px);
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 15px 25px rgba(180, 70, 110, 0.25)
+        );
+
+    animation:
+        heartbeat 1.5s ease-in-out infinite;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.big-heart:hover {
+    transform: scale(1.08);
+}
+
+.big-heart:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================================
+   CLICK TEXT
+========================================================= */
+
+.click-text {
+    font-family:
+        "DM Serif Display",
+        serif;
+    font-weight: bolder;
+    font-size: 40px;
+
+    color: #792b50;
+
+    animation:
+        soft-bounce 2s ease-in-out infinite;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   HEART MOVEMENT
+========================================================= */
+
+.heart-container.heart-jump {
+    animation:
+        cuteHeartJump 0.55s ease;
+}
+
+@keyframes cuteHeartJump {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    35% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15)
+            rotate(-5deg);
+    }
+
+    70% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.92)
+            rotate(4deg);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   FINAL 5TH CLICK
+========================================================= */
+
+.scene-one.final-heart-click .heart-container {
+    animation:
+        finalHeartShake 0.9s ease forwards;
+}
+
+.scene-one.final-heart-click .big-heart {
+    animation:
+        finalHeartPulse 0.9s ease forwards;
+}
+
+.scene-one.final-heart-click .click-text {
+    opacity: 0;
+
+    transform:
+        translateY(10px)
+        scale(0.8);
+}
+
+@keyframes finalHeartShake {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    20% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15)
+            rotate(-8deg);
+    }
+
+    40% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.22)
+            rotate(8deg);
+    }
+
+    60% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.3)
+            rotate(-5deg);
+    }
+
+    80% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.12)
+            rotate(3deg);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.35)
+            rotate(0);
+    }
+}
+
+@keyframes finalHeartPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.3);
+    }
+
+    55% {
+        transform: scale(0.9);
+    }
+
+    75% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(0.2);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   HEART EXPLOSION
+========================================================= */
+
+.heart-explosion {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   FLOWER EXPLOSION FLASH
+========================================================= */
+
+.flower-explosion-flash {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+        0 0 40px rgba(255, 255, 255, 1),
+        0 0 100px rgba(255, 170, 205, 0.95),
+        0 0 180px rgba(255, 140, 190, 0.8);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    animation:
+        flowerFlash 0.75s ease-out forwards;
+
+    z-index: 30;
+}
+
+@keyframes flowerFlash {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(5);
+    }
+}
+
+
+/* =========================================================
+   OLD HEART EXPLOSION PARTICLES
+========================================================= */
+
+.explosion-particle {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.3);
+
+    animation:
+        particleExplosion
+        1.35s
+        cubic-bezier(.16, .8, .25, 1)
+        forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+.explosion-particle.small {
+    font-size: 17px;
+}
+
+.explosion-particle.big {
+    font-size: 32px;
+}
+
+@keyframes particleExplosion {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.2)
+            rotate(0deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 1;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.15)
+            rotate(var(--rotation));
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y) + 40px)
+            )
+            scale(0.45)
+            rotate(var(--rotation));
+    }
+}
+
+
+/* =========================================================
+   EXPLOSION RING
+========================================================= */
+
+.explosion-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    border:
+        4px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    animation:
+        explosionRing 0.9s ease-out forwards;
+}
+
+@keyframes explosionRing {
+
+    0% {
+        opacity: 0.9;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    70% {
+        opacity: 0.35;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(8);
+    }
+}
+
+
+/* =========================================================
+   FLOWER BURST PARTICLES
+========================================================= */
+
+/* =========================================================
+   FLOWER BURST PARTICLES
+========================================================= */
+
+.flower-burst-particle {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 55px;
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    pointer-events: none;
+    user-select: none;
+
+    box-shadow:
+        0 8px 25px rgba(160, 70, 110, 0.25),
+        0 0 15px rgba(255, 255, 255, 0.45);
+
+    transform:
+        translate(-50%, -50%)
+        translate(0, 0)
+        scale(0.15)
+        rotate(0deg);
+
+    animation:
+        flowerBurst
+        2.2s
+        cubic-bezier(.12, .82, .2, 1)
+        forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+@keyframes flowerBurst {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(0, 0)
+            scale(0.1)
+            rotate(0deg);
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            translate(var(--burst-x), var(--burst-y))
+            scale(var(--burst-scale))
+            rotate(var(--burst-rotate));
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(
+                calc(var(--burst-x) * 1.35),
+                calc(var(--burst-y) * 1.35 + 100px)
+            )
+            scale(calc(var(--burst-scale) * 0.55))
+            rotate(calc(var(--burst-rotate) * 1.4));
+    }
+}
+
+/* =========================================================
+   FLOWER RAIN
+========================================================= */
+
+/* =========================================================
+   FLOWER RAIN
+========================================================= */
+
+.flower-rain-particle {
+    position: absolute;
+
+    top: -100px;
+
+    width: 48px;
+    height: 48px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    pointer-events: none;
+    user-select: none;
+
+    box-shadow:
+        0 6px 20px rgba(160, 70, 110, 0.2),
+        0 0 12px rgba(255, 255, 255, 0.35);
+
+    animation:
+        flowerRain
+        var(--duration)
+        linear
+        forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+.flower-rain-particle.extra {
+    width: 36px;
+    height: 36px;
+}
+
+@keyframes flowerRain {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(0)
+            translateY(-30px)
+            rotate(0deg)
+            scale(0.55);
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateX(var(--rain-x))
+            translateY(125vh)
+            rotate(var(--rain-rotate))
+            scale(0.9);
+    }
+}
+/* =========================================================
+   SMALL FLOWERS ON CLICK
+========================================================= */
+
+.flower-click-particle {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 30px;
+    height: 30px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    box-shadow:
+        0 4px 12px rgba(160, 70, 110, 0.18);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.2);
+
+    animation:
+        smallFlowerPop
+        0.95s
+        ease-out
+        forwards;
+}
+
+@keyframes smallFlowerPop {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(0, 0)
+            scale(0.2)
+            rotate(0deg);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            translate(var(--x), var(--y))
+            scale(1)
+            rotate(var(--rotation));
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translate(
+                calc(var(--x) * 1.25),
+                calc(var(--y) * 1.25 + 30px)
+            )
+            scale(0.55)
+            rotate(var(--rotation));
+    }
+}
+
+
+/* =========================================================
+   HEARTBEAT
+========================================================= */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.08);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.07);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+@keyframes soft-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pororo-cursor {
+        width: 42px;
+        height: 42px;
+    }
+
+    .heart-cursor {
+        width: 38px;
+        height: 38px;
+    }
+
+    .heart-cursor span {
+        font-size: 31px;
+    }
+
+    .flower-burst-particle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .flower-rain-particle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .flower-rain-particle.extra {
+        width: 28px;
+        height: 28px;
+    }
+
+    .flower-click-particle {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (pointer: coarse) {
+
+    .pororo-cursor,
+    .heart-cursor {
+        display: none;
+    }
+
+    .cursor-tracker {
+        display: none;
+    }
+
+    body.love-page,
+    body.love-page * {
+        cursor: auto !important;
+    }
+}
+

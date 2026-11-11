@@ -1,0 +1,1189 @@
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(255, 255, 255, 0.95),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #fff3f7 0%,
+            #ffe5ee 45%,
+            #f8d5e2 100%
+        );
+
+    color: #693f50;
+
+    overflow-x: hidden;
+
+    cursor: none;
+}
+
+
+/* =========================================================
+   BACKGROUND HEARTS
+========================================================= */
+
+.background-heart {
+    position: fixed;
+
+    pointer-events: none;
+
+    color:
+        rgba(
+            218,
+            106,
+            151,
+            0.16
+        );
+
+    z-index: 0;
+
+    animation:
+        backgroundFloat
+        7s
+        ease-in-out
+        infinite;
+}
+
+.heart-one {
+    top: 12%;
+    left: 8%;
+    font-size: 28px;
+}
+
+.heart-two {
+    top: 28%;
+    right: 9%;
+    font-size: 20px;
+    animation-delay: 1.5s;
+}
+
+.heart-three {
+    bottom: 22%;
+    left: 12%;
+    font-size: 18px;
+    animation-delay: 3s;
+}
+
+.heart-four {
+    bottom: 12%;
+    right: 13%;
+    font-size: 30px;
+    animation-delay: 4.5s;
+}
+
+@keyframes backgroundFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-8deg);
+
+        opacity: 0.45;
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(8deg);
+
+        opacity: 0.8;
+    }
+
+}
+
+
+/* =========================================================
+   HEART CURSOR
+========================================================= */
+
+#heartCursor {
+    position: fixed;
+
+    left: -100px;
+    top: -100px;
+
+    width: 48px;
+    height: 48px;
+
+    z-index: 999999;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        left 0.04s linear,
+        top 0.04s linear;
+}
+
+#heartCursor span {
+    display: block;
+
+    color: #d86f98;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 39px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 4px 9px
+        rgba(
+            170,
+            65,
+            105,
+            0.28
+        ),
+        0 0 14px
+        rgba(
+            255,
+            150,
+            190,
+            0.58
+        );
+
+    animation:
+        heartCursorPulse
+        1.15s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heartCursorPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.14);
+    }
+
+}
+
+
+/* =========================================================
+   HEART TRAIL
+========================================================= */
+
+.cursor-heart {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    pointer-events: none;
+
+    z-index: 999998;
+
+    color: #e17aa2;
+
+    font-size: 14px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 7px
+        rgba(
+            255,
+            130,
+            175,
+            0.6
+        );
+
+    animation:
+        heartFloat
+        0.95s
+        ease-out
+        forwards;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        opacity: 0.9;
+
+        transform:
+            translate(
+                0,
+                0
+            )
+            scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--move-x),
+                -35px
+            )
+            scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.page {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding:
+        50px
+        20px
+        70px;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TOP TEXT
+========================================================= */
+
+.small-title {
+    margin-bottom: 8px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #b86a87;
+
+    text-align: center;
+}
+
+.main-title {
+    margin-bottom: 12px;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            70px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    color: #683c4f;
+
+    text-align: center;
+}
+
+.intro {
+    max-width: 560px;
+
+    margin:
+        0 auto
+        35px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    font-weight: 300;
+
+    color: #8c6171;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BOUQUET
+   NO WHITE BOX
+   NO BORDER
+   NO BACKGROUND
+========================================================= */
+
+.bouquet-card {
+    position: relative;
+
+    width: min(
+        850px,
+        94vw
+    );
+
+    padding: 0;
+
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    backdrop-filter: none;
+
+    -webkit-backdrop-filter: none;
+}
+
+
+/* =========================================================
+   BOUQUET IMAGE
+========================================================= */
+
+.bouquet-image {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    border-radius: 0;
+
+    overflow: visible;
+}
+
+.bouquet-image img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    border-radius: 0;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 22px 25px
+            rgba(
+                91,
+                45,
+                65,
+                0.16
+            )
+        );
+}
+
+
+/* =========================================================
+   ROSE HOTSPOTS
+========================================================= */
+
+.rose-hotspot {
+    position: absolute;
+
+    display: block;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 50%;
+
+    cursor: none;
+
+    z-index: 10;
+
+    outline: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.rose-hotspot:hover {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    transform:
+        scale(1.06);
+}
+
+.rose-hotspot:focus {
+    outline: none;
+}
+
+
+/* =========================================================
+   BLUE ROSE
+========================================================= */
+
+.rose-hotspot.blue {
+    left: 8%;
+    top: 25%;
+
+    width: 24%;
+    height: 22%;
+}
+
+
+/* =========================================================
+   RED ROSE
+========================================================= */
+
+.rose-hotspot.red {
+    left: 34%;
+    top: 12%;
+
+    width: 25%;
+    height: 23%;
+}
+
+
+/* =========================================================
+   WHITE ROSE
+========================================================= */
+
+.rose-hotspot.white {
+    left: 61%;
+    top: 19%;
+
+    width: 24%;
+    height: 23%;
+}
+
+
+/* =========================================================
+   PINK ROSE
+========================================================= */
+
+.rose-hotspot.pink {
+    left: 17%;
+    top: 46%;
+
+    width: 25%;
+    height: 23%;
+}
+
+
+/* =========================================================
+   YELLOW ROSE
+========================================================= */
+
+.rose-hotspot.yellow {
+    left: 44%;
+    top: 38%;
+
+    width: 25%;
+    height: 24%;
+}
+
+
+/* =========================================================
+   PURPLE ROSE
+========================================================= */
+
+.rose-hotspot.purple {
+    left: 68%;
+    top: 47%;
+
+    width: 24%;
+    height: 23%;
+}
+
+
+/* =========================================================
+   CLICK HINT
+========================================================= */
+
+.click-hint {
+    margin-top: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #a5687e;
+
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+
+    font-weight: 400;
+}
+
+.click-hint-heart {
+    color: #db719b;
+
+    font-size: 17px;
+
+    animation:
+        hintBeat
+        1.2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes hintBeat {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.2);
+    }
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-button {
+    margin-top: 30px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 190px;
+
+    padding:
+        12px
+        22px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    color: #8b4f68;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.68
+        );
+
+    border:
+        1px solid
+        rgba(
+            201,
+            125,
+            153,
+            0.22
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            124,
+            61,
+            88,
+            0.09
+        );
+
+    font-size: 13px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.back-button:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    box-shadow:
+        0 15px 30px
+        rgba(
+            124,
+            61,
+            88,
+            0.13
+        );
+}
+
+
+/* =========================================================
+   DIALOGUE OVERLAY
+========================================================= */
+
+.dialogue-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 50000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(
+            68,
+            34,
+            49,
+            0.32
+        );
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.dialogue-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   DIALOGUE BOX
+========================================================= */
+
+.dialogue-box {
+    position: relative;
+
+    width: min(
+        500px,
+        92vw
+    );
+
+    padding:
+        38px
+        32px
+        32px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.98
+            ),
+            rgba(
+                255,
+                240,
+                246,
+                0.98
+            )
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            69,
+            30,
+            48,
+            0.25
+        );
+
+    transform:
+        translateY(20px)
+        scale(0.94);
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+}
+
+.dialogue-overlay.show
+.dialogue-box {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.dialogue-close {
+    position: absolute;
+
+    top: 14px;
+    right: 16px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            214,
+            107,
+            150,
+            0.1
+        );
+
+    color: #a25775;
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    cursor: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.dialogue-close:hover {
+    background:
+        rgba(
+            214,
+            107,
+            150,
+            0.18
+        );
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   DIALOGUE CONTENT
+========================================================= */
+
+.dialogue-flower {
+    width: 70px;
+    height: 70px;
+
+    margin:
+        0 auto
+        15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff0f5,
+            #ffdce9
+        );
+
+    font-size: 38px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            197,
+            91,
+            132,
+            0.12
+        );
+
+    animation:
+        dialogueFlowerPop
+        0.5s
+        ease-out;
+}
+
+@keyframes dialogueFlowerPop {
+
+    0% {
+        transform:
+            scale(0.5)
+            rotate(-10deg);
+
+        opacity: 0;
+    }
+
+    70% {
+        transform:
+            scale(1.08)
+            rotate(3deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+
+}
+
+.dialogue-box h2 {
+    margin-bottom: 12px;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    color: #713f53;
+}
+
+.dialogue-box p {
+    max-width: 400px;
+
+    margin:
+        0 auto
+        18px;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+
+    color: #80596a;
+
+    font-weight: 300;
+}
+
+.dialogue-small {
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #b8758d;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding:
+            35px
+            12px
+            50px;
+    }
+
+    .bouquet-card {
+        width: 96vw;
+
+        padding: 0;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+    }
+
+    .bouquet-image {
+        padding: 0;
+
+        border-radius: 0;
+    }
+
+    .bouquet-image img {
+        border-radius: 0;
+
+        filter:
+            drop-shadow(
+                0 15px 18px
+                rgba(
+                    91,
+                    45,
+                    65,
+                    0.14
+                )
+            );
+    }
+
+    .intro {
+        margin-bottom: 25px;
+
+        padding:
+            0 8px;
+
+        font-size: 13px;
+    }
+
+    .dialogue-box {
+        padding:
+            35px
+            23px
+            28px;
+    }
+
+    .dialogue-box h2 {
+        font-size: 27px;
+    }
+
+    .dialogue-box p {
+        font-size: 13px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        cursor: auto;
+    }
+
+    #heartCursor {
+        display: none;
+    }
+
+    .cursor-heart {
+        display: none;
+    }
+
+    .rose-hotspot {
+        cursor: pointer;
+    }
+
+    .dialogue-close {
+        cursor: pointer;
+    }
+
+    .main-title {
+        font-size:
+            clamp(
+                40px,
+                12vw,
+                55px
+            );
+    }
+
+    .small-title {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    .click-hint {
+        font-size: 11px;
+    }
+
+}
+
+/* =========================================================
+   ROSE HOTSPOTS
+========================================================= */
+
+.rose-hotspot {
+    position: absolute;
+    z-index: 10;
+
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+
+    cursor: none;
+
+    border-radius: 50%;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.rose-hotspot:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* 💛 YELLOW ROSE */
+
+.rose-hotspot.yellow {
+    left: 44%;
+    top: 18%;
+    width: 13%;
+    height: 15%;
+}
+
+
+/* 💙 BLUE ROSE */
+
+.rose-hotspot.blue {
+    left: 37%;
+    top: 31%;
+    width: 14%;
+    height: 16%;
+}
+
+
+/* ❤️ RED ROSE */
+
+.rose-hotspot.red {
+    left: 44%;
+    top: 32%;
+    width: 14%;
+    height: 16%;
+}
+
+
+/* 💜 PURPLE ROSE */
+
+.rose-hotspot.purple {
+    left: 55%;
+    top: 34%;
+    width: 15%;
+    height: 17%;
+}
+
+
+/* 🩷 PINK ROSE */
+
+.rose-hotspot.pink {
+    left: 34%;
+    top: 43%;
+    width: 16%;
+    height: 18%;
+}
+
+
+/* 🤍 WHITE ROSE */
+
+.rose-hotspot.white {
+    left: 52%;
+    top: 46%;
+    width: 15%;
+    height: 18%;
+}
